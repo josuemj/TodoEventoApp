@@ -1,14 +1,10 @@
 package com.example.myapplication
 
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -61,6 +57,7 @@ fun menu(){
             modifier = Modifier
                 .fillMaxSize()
                 .padding(10.dp)
+                .verticalScroll(rememberScrollState())
         ) {
 
             Text(
@@ -69,6 +66,7 @@ fun menu(){
                 fontSize = 23.sp
             )
 
+            //First Row
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -91,8 +89,24 @@ fun menu(){
                     eventDescription = "HILO SOLD OUT"
                 )
 
+                concertCard(
+                    painter = painterResource(id = R.drawable.garrix),
+                    contentDescription = "",
+                    eventTittle = "Martin Garrix",
+                    eventDescription = "Will perfon soon"
+                )
+
+                concertCard(
+                    painter = painterResource(id = R.drawable.guetta),
+                    contentDescription = "",
+                    eventTittle = "David Guetta",
+                    eventDescription = "Playing 'Like I Do'"
+                )
+
+
             }
 
+            //Second row sports
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -115,12 +129,83 @@ fun menu(){
                     eventDescription = "8:00 PM"
                 )
 
+                concertCard(
+                    painter = painterResource(id = R.drawable.utg),
+                    contentDescription = "",
+                    eventTittle = "UTG 2023",
+                    eventDescription = "Ultra Maraton Guatemala"
+                )
+
+                concertCard(
+                    painter = painterResource(id = R.drawable.cilclistica),
+                    contentDescription = "Vuelta ciclistica",
+                    eventTittle = "Vuelta ciclistica",
+                    eventDescription = "Etapa 2 110km +1000mD+"
+                )
+
             }
+
+            Text(
+                modifier = Modifier.padding(start = 12.dp, end = 180.dp, top = 10.dp),
+                text = "All concerts",
+                fontSize = 18.sp
+            )
+
+            //All concerts row
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(
+                        rememberScrollState()
+                    )
+            ){
+
+                concertCard(
+                    painter = painterResource(id = R.drawable.billie),
+                    contentDescription = "",
+                    eventTittle = "Billie Eillish",
+                    eventDescription = "Performing"
+                )
+
+                concertCard(
+                    painter = painterResource(id = R.drawable.tisto),
+                    contentDescription = "",
+                    eventTittle = "Tiesto",
+                    eventDescription = "Releasing 'Split'"
+                )
+
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(
+                        rememberScrollState()
+                    )
+            ){
+
+                concertCard(
+                    painter = painterResource(id = R.drawable.miko),
+                    contentDescription = "",
+                    eventTittle = "Youn Miko",
+                    eventDescription = "Relasing 'Wiggy'"
+                )
+
+                concertCard(
+                    painter = painterResource(id = R.drawable.bunny),
+                    contentDescription = "",
+                    eventTittle = "BAD BUNNY",
+                    eventDescription = "Singing 'Un verano sin ti'"
+                )
+
+            }
+
         }
     }
 
 }
 
+//All custom widgets
 @Composable
 fun topBar(){
     Box(

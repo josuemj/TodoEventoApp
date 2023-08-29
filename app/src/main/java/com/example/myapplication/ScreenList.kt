@@ -8,6 +8,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -50,14 +52,31 @@ data class Event(val iconLetter: String, val groupName: String,val place:String)
 @Composable
 fun screenList(){
 
-    var eventsList = remember {
-        mutableStateListOf<Event>()
+    var eventsList = mutableListOf<Event>()
+    
+    //Creating random events
+    var event_1 = Event("T","Taylow Swift","New Orleans")
+    val event_2 = Event("D","Deadmau5","Guatemala City")
+    val event_3 = Event("Y","Young Miko","Distrito Federal MX")
+    val event_4 = Event("A","AC/DC","Mercedez Benz Arena")
+    val event_5 = Event("A","Avicii","Staples Center")
+
+    eventsList.add(event_1)
+    eventsList.add(event_2)
+    eventsList.add(event_3)
+    eventsList.add(event_4)
+    eventsList.add(event_5)
+
+    LazyColumn() {
+        items(items = eventsList) { event ->
+            listElement(event = event)
+        }
     }
 
 }
 
 @Composable
-fun listElement(iconLetter: String,groupName: String, eventPlace: String){
+fun listElement(event:Event){
     Column() {
 
 
@@ -86,7 +105,7 @@ fun listElement(iconLetter: String,groupName: String, eventPlace: String){
                 ){
                     Text(
                         modifier = Modifier.align(Alignment.Center),
-                        text = iconLetter,
+                        text = event.iconLetter,
                         fontSize = 30.sp,
                         color = Color(0xFF5b2679)
                     )
@@ -101,13 +120,13 @@ fun listElement(iconLetter: String,groupName: String, eventPlace: String){
                 ) {
 
                     Text(
-                        text = groupName,
+                        text = event.groupName,
                         fontSize = 18.sp
 
                     )
 
                     Text(
-                        text = eventPlace
+                        text = event.place
                     )
                 }
                 
@@ -120,8 +139,8 @@ fun listElement(iconLetter: String,groupName: String, eventPlace: String){
                 {
                     Icon(
                         modifier = Modifier
-                            .width(25.dp)
-                            .height(25.dp),
+                            .width(20.dp)
+                            .height(20.dp),
                         painter = painterResource(id = R.drawable.icontriangle),
                         contentDescription = null
                     )
@@ -134,7 +153,7 @@ fun listElement(iconLetter: String,groupName: String, eventPlace: String){
             modifier = Modifier
                 .fillMaxWidth()
                 .height(1.dp)
-                .background(Color.Gray)
+                .background(Color(0xFFD8d8d8))
         ){
 
         }

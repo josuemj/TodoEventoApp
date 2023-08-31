@@ -50,12 +50,22 @@ fun screenList(){
     val event_3 = Event("Y","Young Miko","Distrito Federal MX")
     val event_4 = Event("A","AC/DC","Mercedez Benz Arena")
     val event_5 = Event("A","Avicii","Staples Center")
+    val event_6 = Event("Z","Esteban Z","Universidad del Valle")
+    val event_7 = Event("G","Gerson Ramirez","UMG")
+    val event_8 = Event("A","Young Miko","Mercedez Benz Arena")
+    val event_9 = Event("A","Avicii","Staples Center")
+    val event_10 = Event("Z","Esteban Z","Universidad del Valle")
 
     eventsList.add(event_1)
     eventsList.add(event_2)
     eventsList.add(event_3)
     eventsList.add(event_4)
     eventsList.add(event_5)
+    eventsList.add(event_6)
+    eventsList.add(event_7)
+    eventsList.add(event_9)
+    eventsList.add(event_10)
+
 
     LazyColumn() {
         items(items = eventsList) { event ->
@@ -151,3 +161,4 @@ fun listElement(event:Event){
 
 
 }
+

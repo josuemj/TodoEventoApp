@@ -154,7 +154,7 @@ fun detailsScren(){
                         colors = ButtonDefaults.buttonColors(Color(0xFFEBD0F9))
                     ) {
                         Text(
-                            text = "Favorite",
+                            text = "Buy",
                             color = Color.Black
                         )
                     }
